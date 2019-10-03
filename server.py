@@ -1,3 +1,10 @@
+'''
+Written by Bianca Power for CSB2019
+
+Demonstration of the Pokemon API using Flask.
+Purpose: Get list of pokemon by colour
+
+'''
 from flask import Flask
 import requests
 app = Flask(__name__)
