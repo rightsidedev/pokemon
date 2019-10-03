@@ -1,12 +1,18 @@
+'''
+A flask server for presenting pokemon color, species and names from the pokemon api
+'''
 from flask import Flask
 import requests
-app = Flask(__name__)
+APP = Flask(__name__)
 
 POKEMON_API_URL = "https://pokeapi.co/api/v2/"
 COLOUR_URL = POKEMON_API_URL + 'pokemon-color'
 
-@app.route('/<colour>') 
+@APP.route('/<colour>')
 def get_by_colour(colour):
+    '''
+    Sends a get request to the pokemon api a gets pokemon species by color
+    '''
     colour_json = requests.get(f'{COLOUR_URL}/{colour}').json()
     pokemon_species_list = colour_json["pokemon_species"]
 
@@ -18,10 +24,12 @@ def get_by_colour(colour):
 
     # colour_json["pokemon_species"][0]["name"]
     return html
-    
 
-@app.route('/')
+@APP.route('/')
 def index():
+    '''
+    Serves html pages for pokemon
+    '''
     colours_json = requests.get(COLOUR_URL).json()
     colours_list = colours_json['results']
 
