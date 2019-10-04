@@ -1,6 +1,9 @@
+#!/usr/bin/python3
+
 '''
 A flask server for presenting pokemon color, species and names from the pokemon api
 '''
+
 from flask import Flask
 import requests
 APP = Flask(__name__)
